@@ -1,71 +1,107 @@
-# test-manager-library-3239137-docs
+# Library Manager — System Documentation
 
-> **Prueba técnica · Ficha ADSO 3239137**
-> Horario: **viernes 23 de octubre de 2026, de 7:00 a. m. a 11:00 a. m.** (hora Colombia). Entrega a las **11:00 a. m.**
+## 1. Project Description
 
-Este repositorio contiene el **spec** de *Manager Library*. Es el único con contenido: los otros cinco empiezan vacíos.
+**Library Manager** is an information system designed to facilitate the administration and management of small libraries by centralizing the control of books, members, and loans through a digital platform.
 
-## Instrucciones
+The system aims to improve the organization of library processes, reduce errors in data recording, and facilitate the tracking of available items, items currently on loan, and items pending return.
 
-Cada aprendiz debe **crear el fork** de los seis repositorios del proyecto y **resolver el proyecto
-con el spec planteado**.
+The solution consists of a web-based management application, a public-facing website, a backend service, storage infrastructure, and a tool for generating demonstration data.
 
-1. Hacer fork, a su cuenta de GitHub, de cada repositorio de la tabla del final.
-2. Leer el spec en [`test-manager-library-3239137-docs`](https://github.com/code-sena/test-manager-library-3239137-docs).
-   Se entrega en dos versiones: `spec-python/` y `spec-.net/`.
-3. Desarrollar en los forks.
+## 2. General Objective
 
-## El reto se desarrolla con React y PHP (Laravel)
+To design the technical and functional documentation for a library management system that enables the administration of a book catalog, registration of members, tracking of loans and returns, querying of overdue items, and generation of reports on the most-borrowed books.
 
-El spec está escrito para Python y para .NET, pero el reto **no** se hace en esos lenguajes:
+## 3. Specific Objectives
 
-| Capa | Tecnología del reto |
+- Define the system's functional and non-functional requirements.
+- Document the processes for managing books and categories.
+- Specify the management of members, loans, and returns.
+- Establish the architecture and the responsibilities of each component.
+- Define the data model and the relationships between entities.
+- Document the services and communication endpoints.
+- Establish security and access control criteria.
+
+## 4. System Scope
+
+Library Manager includes the following functionalities:
+
+- Authentication for administrators and librarians.
+- Registration and administration of librarians.
+- Management of the book catalog.
+- Administration of five bibliographic categories.
+- Registration and lookup of members.
+- Recording of book loans.
+- Tracking of returns for individual items.
+- Querying of overdue loans.
+- Generation of reports on the most-borrowed books.
+
+### Out-of-Scope Functionalities
+
+The system does not include:
+
+- Management of fines or payments.
+- Book reservations.
+- Loan renewals. - Email or SMS notifications.
+- Loans between different branches.
+- Bulk data import.
+
+## 5. System Actors
+
+| Actor | Responsibilities |
 |---|---|
-| Frontend | React |
-| Backend | PHP con Laravel |
+| Administrator | Manage books, members, librarians, and reports. |
+| Librarian | Register loans and returns; look up books, members, and overdue items. |
+| Member | An individual who borrows books. Does not have authentication access to the system. |
 
-Lo que el spec define sobre el negocio —historias, criterios de aceptación, reglas, contrato de la
-API, modelo de datos— se respeta. Lo que define sobre la tecnología se traduce a React y Laravel.
+## 6. Technological Architecture
 
-## La prueba no consiste en escribir el código
+The solution is organized into the following components:
 
-El propósito principal es ver la **capacidad de desempeño con SDD** (*Spec-Driven Development*,
-desarrollo guiado por especificación): cómo se lee, se interpreta y se aplica una especificación
-para llevarla a un stack distinto. El código es el medio, no el fin.
+| Component | Technology | Responsibility |
+|---|---|---|
+| Server | PHP-Laravel | Request processing, business logic, and API services. |
+| Interface | React | Management interface for administrators and librarians. |
+| Database | PostgreSQL 16 | Storage for users, books, members, and loans. |
+| Public Site | HTML, CSS, and JavaScript | Presentation and general system information. |
+| Infrastructure | Docker | Organization of services and execution environments. |
+| Tools | JavaScript/Node.js | Generation of demonstration data via the API. |
 
-## Entrega
+## 7. Repository Organization
 
-Cuenta lo que quede **subido a los forks antes de las 11:00 a. m.** Lo que llegue después no se revisa.
-No hay prórroga: suban avances parciales con commits pequeños durante la prueba.
+The project is divided into six repositories, each with a specific responsibility.
 
-## Qué contiene este repositorio
-
-| Carpeta | Contenido |
+| Repository | Description |
 |---|---|
-| [`spec-python/`](spec-python/) | El spec de Manager Library escrito para un backend Python |
-| [`spec-.net/`](spec-.net/) | El mismo sistema especificado para un backend .NET |
+| [DOCS](https://github.com/Aguirrecristiantrox0426/test-manager-library-3239137-docs) | Functional, technical, and architectural documentation of the system. |
+| [API](https://github.com/Aguirrecristiantrox0426/test-manager-library-3239137-api) | Documentation for the backend and its REST services, developed using Laravel. |
+| [APPLICATION](https://github.com/Aguirrecristiantrox0426/test-manager-library-3239137-app) | Documentation for the web application developed using React. |
+| [PAGE](https://github.com/Aguirrecristiantrox0426/test-manager-library-3239137-page) | Documentation for the public presentation site. |
+| [INFRA](https://github.com/Aguirrecristiantrox0426/test-manager-library-3239137-infra) | Documentation for infrastructure, containers, and the database. |
+| [TOOL](https://github.com/Aguirrecristiantrox0426/test-manager-library-3239137-tool) | Documentation for tools used to generate demonstration data. |
 
-Las dos versiones describen el **mismo producto** (las mismas historias, reglas de negocio y
-endpoints); cambian las decisiones de tecnología. Ninguna de las dos es el stack del reto.
+## 8. System Documentation
 
-## Cómo se lee el spec
+This repository centralizes the specifications and documents that guide the definition of the system.
 
-En cualquiera de las dos carpetas, en este orden:
+### General Documentation
 
-1. `constitution.md` — principios innegociables.
-2. `spec.md` — qué debe hacer el sistema: actores, historias, criterios de aceptación, reglas de negocio.
-3. `plan.md`, `architecture.md` y `arquitectura-panoramica.md` — cómo se construye.
-4. `data-model.md` y `api-contract.md` — el modelo de datos y el contrato de la API.
-5. `tasks.md` — qué hay que hacer y con qué evidencia se da por hecho.
-6. `adr/` — las decisiones de arquitectura, con sus alternativas y consecuencias.
+- Project description.
+- Scope and objectives.
+- Functional requirements.
+- Non-functional requirements.
+- Glossary of terms.
 
-## Los seis repositorios
+### Architectural Documentation
 
-| Repositorio | Qué va ahí |
-|---|---|
-| [`test-manager-library-3239137-docs`](https://github.com/code-sena/test-manager-library-3239137-docs) | El spec: `spec-python/` y `spec-.net/` |
-| [`test-manager-library-3239137-api`](https://github.com/code-sena/test-manager-library-3239137-api) | Backend en PHP (Laravel) |
-| [`test-manager-library-3239137-app`](https://github.com/code-sena/test-manager-library-3239137-app) | Frontend en React |
-| [`test-manager-library-3239137-page`](https://github.com/code-sena/test-manager-library-3239137-page) | Sitio público estático de presentación |
-| [`test-manager-library-3239137-infra`](https://github.com/code-sena/test-manager-library-3239137-infra) | Contenedores, red, volúmenes y motor de base de datos vacío |
-| [`test-manager-library-3239137-tool`](https://github.com/code-sena/test-manager-library-3239137-tool) | Utilidades: sembrador de datos de demostración |
+- General architecture.
+- Technologies used.
+- Repository organization.
+- Component responsibilities.
+
+### Technical Specifications
+
+Two reference versions of the system are maintained:
+
+- **spec-.net:** reference specification oriented toward .NET.
+- **sp
